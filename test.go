@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-func test() {
+func taskN22test() {
 	m := make(map[int]int)
 	var wg sync.WaitGroup
 
