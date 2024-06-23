@@ -5,19 +5,21 @@ import (
 	"sync"
 )
 
+// функция routineCalc рассчитывает квадраты чисел из слайса и выводит их в stdout
 func routineCalc(slice []int) {
 	var wg sync.WaitGroup
 
+	// запускаем горутину для каждого числа в слайсе
 	for _, num := range slice {
 		wg.Add(1)
 		go func(num int) {
-			defer wg.Done()
+			defer wg.Done() // уменьшаем счетчик горутин по завершении
 			fmt.Println(num, ": ", num*num)
 		}(num)
 	}
-	wg.Wait()
+	wg.Wait() // ждем завершения всех горутин
 }
 
 func taskN2() {
-	routineCalc([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+	routineCalc([]int{2, 4, 6, 8, 10})
 }

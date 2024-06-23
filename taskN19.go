@@ -2,24 +2,26 @@ package main
 
 import "fmt"
 
-func reverseSrting(str string) string {
-	runes := []rune(str)
+// функция reverseString переворачивает строку
+func reverseString(str string) string {
+	runes := []rune(str) // преобразуем строку в срез рун
 
 	l := len(runes)
 	mid := l / 2
 
+	// меняем местами символы
 	for i := 0; i < mid; i++ {
 		runes[i], runes[l-1-i] = runes[l-1-i], runes[i]
 	}
 
-	str = string(runes)
-	return str
+	return string(runes) // преобразуем срез рун обратно в строку
 }
 
-func taskN18() {
+// функция taskN18 демонстрирует переворачивание строки
+func taskN19() {
 	str := "главрыба"
-	fmt.Println("String before reverseStr: ", str)
+	fmt.Println("String before reverse:", str)
 
-	str = reverseSrting(str)
-	fmt.Println("String afer reverseStr: ", str)
+	str = reverseString(str)
+	fmt.Println("String after reverse:", str)
 }

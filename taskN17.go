@@ -2,13 +2,15 @@ package main
 
 import "fmt"
 
+// функция binarySearch реализует бинарный поиск
 func binarySearch(arr []int, target int) int {
 	left := 0
 	right := len(arr) - 1
 
 	for left <= right {
 		mid := left + (right-left)/2
-		println(arr[mid])
+		// fmt.Println(arr[mid])
+
 		if arr[mid] == target {
 			return mid
 		} else if arr[mid] < target {
@@ -18,11 +20,12 @@ func binarySearch(arr []int, target int) int {
 		}
 	}
 
-	return -1
+	return -1 // возвращаем -1, если элемент не найден
 }
 
-func taskN16() {
+// функция taskN17 демонстрирует работу бинарного поиска
+func taskN17() {
 	arr := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
 	target := 13
-	fmt.Printf("Element %d has index %d in array", target, binarySearch(arr, target))
+	fmt.Printf("Element %d has index %d in array\n", target, binarySearch(arr, target))
 }

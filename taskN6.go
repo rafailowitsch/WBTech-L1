@@ -12,7 +12,7 @@ import (
 func taskN6() {
 	var wg sync.WaitGroup
 
-	// завершение горутины используя context.WithTimeout
+	// 1. завершение горутины используя context.WithTimeout
 	{
 		wg.Add(1)
 		fmt.Println("1. terminating the goroutine using context.WithTimeout")
@@ -36,7 +36,7 @@ func taskN6() {
 		wg.Wait()
 	}
 
-	// завершение горутины используя context.WithCancel
+	// 2. завершение горутины используя context.WithCancel
 	{
 		wg.Add(1)
 		fmt.Println("2. terminating the goroutine using context.WithCancel")
@@ -61,7 +61,7 @@ func taskN6() {
 		wg.Wait()
 	}
 
-	// завершение горутины используя канал
+	// 3. завершение горутины используя канал
 	{
 		wg.Add(1)
 		fmt.Println("3. terminating the goroutine using channel of bool type")
@@ -86,7 +86,7 @@ func taskN6() {
 		wg.Wait()
 	}
 
-	// завершение горутины используя закрытый канал
+	// 4. завершение горутины используя закрытый канал
 	{
 		wg.Add(1)
 		fmt.Println("4. terminating the goroutine using a closed channel")
@@ -106,7 +106,7 @@ func taskN6() {
 		wg.Wait()
 	}
 
-	// функция внутри гоуритны выполняется
+	// 5. функция внутри гоуритны выполняется
 	{
 		wg.Add(1)
 		fmt.Println("5. execution of the goroutine until the internal function is executed")

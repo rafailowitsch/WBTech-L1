@@ -2,18 +2,20 @@ package main
 
 import "fmt"
 
+// функция SetBit устанавливает i-й бит числа n в 1
 func SetBit(n int, i uint) int {
 	return n | (1 << i)
 }
 
+// функция ClearBit сбрасывает i-й бит числа n в 0
 func ClearBit(n int, i uint) int {
 	return n &^ (1 << i)
 }
 
+// функция taskN8 демонстрирует использование SetBit и ClearBit для установки и сброса битов
 func taskN8() {
-
 	fmt.Print("Initial number: ")
-	n := 5 // 101
+	n := 5 // 101 в двоичном виде
 	fmt.Printf("%d in binary is %b\n", n, n)
 
 	fmt.Print("After set first bit: ")

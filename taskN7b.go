@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// функция PrintSyncMap выводит все ключи и значения из sync.Map
 func PrintSyncMap(cm *sync.Map) {
 	cm.Range(func(key, value interface{}) bool {
 		fmt.Printf("Key: %v, Value: %v\n", key, value)
@@ -12,6 +13,7 @@ func PrintSyncMap(cm *sync.Map) {
 	})
 }
 
+// функция taskN7b демонстрирует использование sync.Map для конкурентной записи данных
 func taskN7b() {
 	var m sync.Map
 

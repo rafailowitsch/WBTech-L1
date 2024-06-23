@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// функция taskN14 демонстрирует определение типа переменной в рантайме
 func taskN14() {
 	sl := []interface{}{5, "string", true, make(chan interface{}), struct{}{}}
 
@@ -11,6 +12,7 @@ func taskN14() {
 	}
 }
 
+// функция getType определяет тип переменной iface
 func getType(iface interface{}) string {
 	switch iface.(type) {
 	case int:

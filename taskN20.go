@@ -5,26 +5,25 @@ import (
 	"strings"
 )
 
+// функция reverseWords переворачивает слова в строке
 func reverseWords(str string) string {
-	words := strings.Fields(str)
+	words := strings.Fields(str) // разбиваем строку на слова
 
 	l := len(words)
 	mid := l / 2
-	println(mid)
 
+	// меняем местами слова
 	for i := 0; i < mid; i++ {
 		words[i], words[l-1-i] = words[l-1-i], words[i]
-		fmt.Println(i, words[i], words[l-1-i])
 	}
 
-	str = strings.Join(words, " ")
-
-	return str
+	return strings.Join(words, " ") // объединяем слова обратно в строку
 }
 
-func taskN19() {
+// функция taskN19 демонстрирует переворачивание слов в строке
+func taskN20() {
 	str := "snow dog sun moon"
-	fmt.Println("String before reverse words: ", str)
+	fmt.Println("String before reverse words:", str)
 
 	str = reverseWords(str)
 	fmt.Println("String after reverse words:", str)

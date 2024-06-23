@@ -5,15 +5,17 @@ import (
 	"time"
 )
 
+// функция sleep приостанавливает выполнение программы на заданное количество секунд
 func sleep(sec int64) {
 	currTime := time.Now().Unix()
-	reqTime := currTime + sec - 1
+	reqTime := currTime + sec
 
-	for currTime <= reqTime {
+	for currTime < reqTime {
 		currTime = time.Now().Unix()
 	}
 }
 
+// функция taskN25 демонстрирует использование функции sleep
 func taskN25() {
 	fmt.Print("Hello ")
 	sleep(5)

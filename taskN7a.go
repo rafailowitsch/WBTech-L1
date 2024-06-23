@@ -7,8 +7,9 @@ import (
 	"sync"
 )
 
+// структура ConcurrentMap содержит мапу и мьютекс для обеспечения конкурентного доступа
 type ConcurrentMap struct {
-	mu sync.RWMutex // испольузем RWMutex, чтобы поддерживать конкуретное чтение из мапы
+	mu sync.RWMutex // используем RWMutex для поддержки конкурентного чтения
 	m  map[string]interface{}
 }
 
@@ -18,6 +19,7 @@ func NewConcurrentMap() *ConcurrentMap {
 	}
 }
 
+// метод Set устанавливает значение в мапу с блокировкой на запись
 func (cm *ConcurrentMap) Set(key string, value interface{}) {
 	cm.mu.Lock() // используем обычный метод блокировки мьютекса, чтобы заблокировать чтение
 	defer cm.mu.Unlock()
@@ -25,6 +27,7 @@ func (cm *ConcurrentMap) Set(key string, value interface{}) {
 	cm.m[key] = value
 }
 
+// метод Get получает значение из мапы с блокировкой на чтение
 func (cm *ConcurrentMap) Get(key string) (interface{}, bool) {
 	cm.mu.RLock() // используем метод Read Lock, который позволяет нескольким горутинам считывать значение из мапы
 	defer cm.mu.RUnlock()
@@ -34,11 +37,12 @@ func (cm *ConcurrentMap) Get(key string) (interface{}, bool) {
 	return value, ok
 }
 
+// метод GetKeyValue возвращает копию мапы
 func (cm *ConcurrentMap) GetKeyValue() map[string]interface{} {
 	cm.mu.RLock()
 	defer cm.mu.RUnlock()
 
-	copyMap := make(map[string]interface{}) // делаем копию мапы, чтобы соблюдать инкапсуляцию
+	copyMap := make(map[string]interface{}) // делаем копию мапы для инкапсуляции
 	for key, value := range cm.m {
 		copyMap[key] = value
 	}
@@ -46,6 +50,7 @@ func (cm *ConcurrentMap) GetKeyValue() map[string]interface{} {
 	return copyMap
 }
 
+// метод Delete удаляет значение из мапы с блокировкой на запись
 func (cm *ConcurrentMap) Delete(key string) {
 	cm.mu.Lock()
 	defer cm.mu.Unlock()
@@ -53,6 +58,7 @@ func (cm *ConcurrentMap) Delete(key string) {
 	delete(cm.m, key)
 }
 
+// функция taskN7a создает и использует экземпляр ConcurrentMap
 func taskN7a() {
 	cm := NewConcurrentMap()
 
