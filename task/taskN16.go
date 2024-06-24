@@ -1,9 +1,9 @@
-package main
+package task
 
 import "fmt"
 
 // функция taskN16 демонстрирует работу быстрой сортировки
-func taskN16() {
+func TaskN16() {
 	arr := []int{10, 7, 8, 9, 1, 5}
 	fmt.Println("Исходный массив:", arr)
 	quickSort(arr)

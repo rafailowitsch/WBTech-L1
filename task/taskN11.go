@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -23,7 +23,7 @@ func intersection(set1, set2 []int) []int {
 }
 
 // функция taskN11 демонстрирует пересечение двух множеств
-func taskN11() {
+func TaskN11() {
 	set1 := []int{1, 2, 3, 4, 5}
 	set2 := []int{3, 4, 5, 6, 7}
 

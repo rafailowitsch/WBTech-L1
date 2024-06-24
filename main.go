@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	t "wbtech/task"
 )
 
 func main() {
@@ -18,13 +19,13 @@ func main() {
 		return
 	}
 
-	// массив функций для вызова
+	//массив функций для вызова
 	tasks := []func(){
-		taskN1, taskN2, taskN3, taskN4, taskN5, taskN6,
-		func() { taskN7a(); taskN7b() }, // объединение taskN7a и taskN7b
-		taskN8, taskN9, taskN10, taskN11, taskN12, taskN13,
-		taskN14, taskN15, taskN16, taskN17, taskN18, taskN19,
-		taskN20, taskN21, taskN22, taskN23, taskN24, taskN25, taskN26,
+		t.TaskN1, t.TaskN2, t.TaskN3, t.TaskN4, t.TaskN5, t.TaskN6,
+		func() { t.TaskN7a(); t.TaskN7b() }, // объединение t.TaskN7a и t.TaskN7b
+		t.TaskN8, t.TaskN9, t.TaskN10, t.TaskN11, t.TaskN12, t.TaskN13,
+		t.TaskN14, t.TaskN15, t.TaskN16, t.TaskN17, t.TaskN18, t.TaskN19,
+		t.TaskN20, t.TaskN21, t.TaskN22, t.TaskN23, t.TaskN24, t.TaskN25, t.TaskN26,
 	}
 
 	if taskNumber >= 1 && taskNumber <= len(tasks) {

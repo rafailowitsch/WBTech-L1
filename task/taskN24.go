@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func Distance(p1, p2 *Point) float64 {
 }
 
 // функция taskN24 демонстрирует использование структуры Point и функции Distance
-func taskN24() {
+func TaskN24() {
 	p1 := NewPoint(4, 5)
 	p2 := NewPoint(0, 0)
 

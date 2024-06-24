@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 )
 
 // функция taskN22 демонстрирует операции с большими числами
-func taskN22() {
+func TaskN22() {
 	a_base := big.NewInt(2)
 	a_exponent := uint(20)
 	a := new(big.Int).Exp(a_base, big.NewInt(int64(a_exponent)), nil)

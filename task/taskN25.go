@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ func sleep(sec int64) {
 }
 
 // функция taskN25 демонстрирует использование функции sleep
-func taskN25() {
+func TaskN25() {
 	fmt.Print("Hello ")
 	sleep(5)
 	fmt.Println("world!")

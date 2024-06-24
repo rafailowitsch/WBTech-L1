@@ -1,6 +1,4 @@
-// Реализовать все возможные способы остановки выполнения горутины.
-
-package main
+package task
 
 import (
 	"context"
@@ -9,7 +7,7 @@ import (
 	"time"
 )
 
-func taskN6() {
+func TaskN6() {
 	var wg sync.WaitGroup
 
 	// 1. завершение горутины используя context.WithTimeout

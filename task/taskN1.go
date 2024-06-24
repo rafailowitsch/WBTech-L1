@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -38,7 +38,7 @@ func (a Action) Act() {
 	fmt.Println(a.Actor.String())
 }
 
-func taskN1() {
+func TaskN1() {
 	// создаем экземпляр Human для Male
 	humanMale := Human{
 		"John",

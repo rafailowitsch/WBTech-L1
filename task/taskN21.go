@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -26,7 +26,7 @@ func (ba *bitcoinAdapter) send(amount float64, address string) {
 }
 
 // функция taskN21 демонстрирует использование паттерна адаптер
-func taskN21() {
+func TaskN21() {
 	var wallet cryptoWallet
 
 	btcWallet := &bitcoinWallet{}

@@ -1,9 +1,9 @@
-package main
+package task
 
 import "fmt"
 
 // функция taskN14 демонстрирует определение типа переменной в рантайме
-func taskN14() {
+func TaskN14() {
 	sl := []interface{}{5, "string", true, make(chan interface{}), struct{}{}}
 
 	for i, elm := range sl {

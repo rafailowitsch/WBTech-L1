@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func reverseWords(str string) string {
 }
 
 // функция taskN19 демонстрирует переворачивание слов в строке
-func taskN20() {
+func TaskN20() {
 	str := "snow dog sun moon"
 	fmt.Println("String before reverse words:", str)
 

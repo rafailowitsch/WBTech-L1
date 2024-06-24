@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 )
 
 // функция taskN5 запускает два горутины: одна для отправки значений в канал, другая для их чтения и обработки
-func taskN5() {
+func TaskN5() {
 	duration := time.Duration(30) * time.Second // задаем длительность работы программы
 	ctx, cancel := context.WithTimeout(context.Background(), duration)
 	defer cancel()

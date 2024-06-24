@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 // функция taskN9 демонстрирует создание конвейера для обработки чисел
-func taskN9() {
+func TaskN9() {
 	var wg sync.WaitGroup
 
 	ch1 := make(chan int, 5)

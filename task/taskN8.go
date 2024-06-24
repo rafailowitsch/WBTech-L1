@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -13,7 +13,7 @@ func ClearBit(n int, i uint) int {
 }
 
 // функция taskN8 демонстрирует использование SetBit и ClearBit для установки и сброса битов
-func taskN8() {
+func TaskN8() {
 	fmt.Print("Initial number: ")
 	n := 5 // 101 в двоичном виде
 	fmt.Printf("%d in binary is %b\n", n, n)

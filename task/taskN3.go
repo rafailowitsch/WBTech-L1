@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -25,7 +25,7 @@ func getSumSquares(slice []int) int {
 	return sum
 }
 
-func taskN3() {
+func TaskN3() {
 	ss := getSumSquares([]int{2, 3, 4, 5})
 	fmt.Println(ss)
 }

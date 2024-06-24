@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 )
 
 // функция taskN26 демонстрирует проверку уникальности символов в строках
-func taskN26() {
+func TaskN26() {
 	str1 := "abcd"
 	str2 := "abCdefAaf"
 	str3 := "aabcd"

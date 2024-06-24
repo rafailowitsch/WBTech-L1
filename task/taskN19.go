@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -18,7 +18,7 @@ func reverseString(str string) string {
 }
 
 // функция taskN18 демонстрирует переворачивание строки
-func taskN19() {
+func TaskN19() {
 	str := "главрыба"
 	fmt.Println("String before reverse:", str)
 

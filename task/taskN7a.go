@@ -1,6 +1,4 @@
-// Реализовать конкурентную запись данных в map.
-
-package main
+package task
 
 import (
 	"fmt"
@@ -59,7 +57,7 @@ func (cm *ConcurrentMap) Delete(key string) {
 }
 
 // функция taskN7a создает и использует экземпляр ConcurrentMap
-func taskN7a() {
+func TaskN7a() {
 	cm := NewConcurrentMap()
 
 	cm.Set("foo", "bar")

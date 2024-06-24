@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -7,8 +7,7 @@ import (
 
 var justString string
 
-// функция taskN15 демонстрирует работу функции someFunc и проблему срезов строк
-func taskN15() {
+func TaskN15() {
 	someFunc()
 	fmt.Println(justString)
 }
@@ -19,10 +18,11 @@ func createHugeString(size int) string {
 	return repeatedString
 }
 
-// функция someFunc демонстрирует проблему срезов строк
 func someFunc() {
 	v := createHugeString(1 << 10) // создаем большую строку
 
 	// корректное преобразование строки в срез рун и использование первых 100 рун
+	// мы создаем новую строку на основе среза рун
+	// соответственно сборщик мусора при окончании функции освобождает память из под переменной v
 	justString = string([]rune(v)[:100])
 }

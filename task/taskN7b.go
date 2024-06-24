@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func PrintSyncMap(cm *sync.Map) {
 }
 
 // функция taskN7b демонстрирует использование sync.Map для конкурентной записи данных
-func taskN7b() {
+func TaskN7b() {
 	var m sync.Map
 
 	m.Store("foo", "bar")

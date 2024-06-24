@@ -1,9 +1,9 @@
-package main
+package task
 
 import "fmt"
 
 // функция taskN23 демонстрирует удаление элемента из слайса двумя способами
-func taskN23() {
+func TaskN23() {
 	// способ используя алгоритм
 	sl := []int{1, 2, 3, 4, 5, 6, 7, 8}
 	fmt.Println("Before removing the i-th element:", sl)

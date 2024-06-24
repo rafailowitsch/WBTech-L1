@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -24,7 +24,7 @@ func binarySearch(arr []int, target int) int {
 }
 
 // функция taskN17 демонстрирует работу бинарного поиска
-func taskN17() {
+func TaskN17() {
 	arr := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
 	target := 13
 	fmt.Printf("Element %d has index %d in array\n", target, binarySearch(arr, target))

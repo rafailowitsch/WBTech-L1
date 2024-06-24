@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"context"
@@ -33,6 +33,7 @@ func (s someStruct) GetType() string {
 }
 
 // функция worker выполняет задачи из канала tasks и выводит результат в stdout
+// воркеры работают до тех пор, пока открыт канал
 func worker(id int, tasks <-chan interface{}, wg *sync.WaitGroup) {
 	defer wg.Done()
 	rand.New(rand.NewSource(time.Now().Unix()))
@@ -57,26 +58,32 @@ func worker(id int, tasks <-chan interface{}, wg *sync.WaitGroup) {
 }
 
 // функция dataProcessor запускает воркеров для обработки данных из dataSlice
-func dataProcessor(dataSlice []interface{}, numWorkers int) {
+func dataProcessor(ctx context.Context, dataSlice []interface{}, numWorkers int) {
 	var wg sync.WaitGroup
 	dataChan := make(chan interface{}, len(dataSlice))
-
-	ctx, cancel := context.WithTimeout(context.Background(), 25*time.Second)
+	ctx1, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	for i := 0; i <= numWorkers; i++ {
+	for i := 1; i <= numWorkers; i++ {
 		wg.Add(1)
 		go worker(i, dataChan, &wg)
 	}
 
 	go func() {
+		defer close(dataChan)
 		for {
 			select {
 			case <-ctx.Done():
 				return
 			default:
 				for _, value := range dataSlice {
-					dataChan <- value
+					select {
+					case dataChan <- value:
+					case <-ctx1.Done():
+						return
+					case <-ctx.Done():
+						return
+					}
 				}
 				time.Sleep(500 * time.Millisecond)
 			}
@@ -91,13 +98,17 @@ func dataProcessor(dataSlice []interface{}, numWorkers int) {
 		fmt.Println("\nTimeout reached, shutting down...")
 	case <-stopChan:
 		fmt.Println("\nReceived interrupt signal, shutting down...")
+		cancel()
+
 	}
 
-	close(dataChan) // закрытие канала
-	wg.Wait()       // ожидание завершения всех воркеров
+	wg.Wait() // ожидание завершения всех воркеров
 }
 
-func taskN4() {
+func TaskN4() {
+	ctx, cancel := context.WithTimeout(context.Background(), 25*time.Second)
+	defer cancel()
+
 	dataSlice := []someStruct{{1}, {2}, {3}, {4}}
 
 	interfaceSlice := make([]interface{}, len(dataSlice))
@@ -105,5 +116,5 @@ func taskN4() {
 		interfaceSlice[i] = v
 	}
 
-	dataProcessor(interfaceSlice, 2)
+	dataProcessor(ctx, interfaceSlice, 2)
 }

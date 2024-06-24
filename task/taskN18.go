@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -34,7 +34,7 @@ func (c *counter) get() int {
 }
 
 // функция taskN18 демонстрирует конкурентное инкрементирование счетчика
-func taskN18() {
+func TaskN18() {
 	var wg sync.WaitGroup
 
 	counter := NewCounter()

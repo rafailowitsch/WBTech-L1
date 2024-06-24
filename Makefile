@@ -2,13 +2,20 @@
 BINARY_NAME=tasks
 
 # Список всех файлов исходного кода
-SOURCES=$(wildcard *.go)
+MAIN_SOURCES=$(wildcard *.go)
+TASK_SOURCES=$(wildcard task/*.go)
 
 # Цель по умолчанию - сборка проекта
 all: build
 
+# Инициализация модуля Go
+init:
+	@echo "Initializing Go module..."
+	@go mod init main || true
+	@go mod tidy
+
 # Цель сборки проекта
-build:
+build: init
 	@echo "Building the project..."
 	@go build -o $(BINARY_NAME) $(SOURCES)
 
@@ -20,6 +27,6 @@ clean:
 # Цель для запуска проекта
 run: build
 	@echo "Running the project..."
-	@./$(BINARY_NAME)
+	@./$(BINARY_NAME) $(ARGS)
 
-.PHONY: all build clean run test
+.PHONY: all build clean run test init

@@ -1,4 +1,4 @@
-package main
+package task
 
 import "fmt"
 
@@ -19,7 +19,7 @@ func set(series []string) []string {
 }
 
 // функция taskN12 демонстрирует создание множества из последовательности строк
-func taskN12() {
+func TaskN12() {
 	s := []string{"cat", "cat", "dog", "cat", "tree"}
 
 	result := set(s)

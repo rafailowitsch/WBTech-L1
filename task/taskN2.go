@@ -1,4 +1,4 @@
-package main
+package task
 
 import (
 	"fmt"
@@ -20,6 +20,6 @@ func routineCalc(slice []int) {
 	wg.Wait() // ждем завершения всех горутин
 }
 
-func taskN2() {
+func TaskN2() {
 	routineCalc([]int{2, 4, 6, 8, 10})
 }
